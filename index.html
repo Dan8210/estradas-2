@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highway </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Paleta de cores cinza deserto */
+        :root {
+            --desert-sand: #e6d2aa;
+            --desert-gray: #8c7e6b;
+            --desert-dark: #4a453d;
+            --desert-light: #f5f1e6;
+            --desert-accent: #a67c52;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--desert-light);
+            color: var(--desert-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--desert-sand);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+                .logo-img {       
+            border-radius: 5%;
+            border: 10px #000000;
+            width: 50%;
+            height: auto;
+           
+            
+        }
+
+        /*.logo-placeholder {
+            width: 420px;
+            height: 100px;
+            background-color: var(f3eac0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            color: var(--desert-dark);
+            font-size: 12px;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }*/
+
+        .logo-text {
+            color: var(--desert-dark);;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: var(--desert-accent);
+            padding: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            flex: 1;
+            text-align: center;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-bottom: 3px solid var(--desert-sand);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .relatorio-resumo {
+            font-family: 'Segoe UI', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+}
+
+        .destaque-box {
+    background: #f8f9fa;
+    border-left: 4px solid #f3a33b;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+        .destaque-box1 {
+    background: #f8f9fa;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+        .destaque-box2 {
+    background: #4a453d;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 10px;
+   text-align: left;
+    
+}
+
+.alerta {
+    border-left-color: #f3a33b;
+    background: #f8f9fa;
+}
+
+.conclusao-box {
+    background: #f8f9fa;
+    border: 1px solid #f3a33b;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 25px;
+}
+
+h2, h3 {
+    color: #000000;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.destaque {
+    font-weight: bold;
+    color: #c0392b;
+}
+
+.caixa-texto {
+        background: #f8f9fa;
+    border: 1px solid #f3a33b;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 25px;
+}
+
+.caixa-imagem  {
+        
+    border: 8px solid #f3a33b;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 25px;
+}
+
+.texto-t1  {
+        
+    font-size: 17px;
+    line-height: 30px;
+    text-align: start;
+    
+}
+
+.caixa-top {
+        background: #f1c87b56;
+    border: 2px solid #000000;
+    padding: 8px;
+    border-radius: 10px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.caixa-top1 {
+        background:  #e6d2aa;
+    padding: 8px;
+    border-radius: 10px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    width: 300px;
+    height: 80px;
+  
+
+}
+    
+        /* Tab Content Styles */
+        .tab-content {
+            padding: 50px 0;
+            min-height: 60vh;
+        }
+
+        .tab-pane {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-pane.active {
+            display: block;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero-section h1 {
+            font-size: 42px;
+            color: var(--desert-accent);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-section p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: var(--desert-gray);
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            width: 300px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .features-2 {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 30px;
+            line-height: 35px;
+            font-weight: 700;
+
+
+        }
+
+                .features-3 {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 30px;
+            line-height: 40px;
+            font-weight: 700;
+        }
+
+                .features-4 {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 50px;
+            line-height: 40px;
+            font-weight: 700;
+            margin-bottom: 50px;
+
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-card i {
+            font-size: 48px;
+            color: var(--desert-accent);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            color: var(--desert-dark);
+            margin-bottom: 15px;
+        }
+
+        .pdf-container {
+            text-align: center;
+            padding: 40px 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .pdf-container h2 {
+            color: var(--desert-accent);
+            margin-bottom: 25px;
+        }
+
+        .pdf-container p {
+            margin-bottom: 30px;
+            color: var(--desert-gray);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--desert-accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .btn:hover {
+            background: var(--desert-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .contact-container h2 {
+            color: var(--desert-accent);
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: translateY(-3px);
+        }
+
+        /* Footer Styles */
+        footer {
+            background: var(--desert-dark);
+            color: var(--desert-light);
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: var(--desert-sand);
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 25px;
+                right: 20px;
+            }
+
+            .hero-section h1 {
+                font-size: 32px;
+            }
+
+            .hero-section p {
+                font-size: 18px;
+            }
+
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-container {
+                padding: 30px 20px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+.contact-info, .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h2, .contact-form h2 {
+            color: var(--laranja);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-form form {
+            display: grid;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--laranja);
+            outline: none;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <div class="logo-placeholder" >
+                        <div class="caixa-top1">
+                        <h1 class="logo-text"><img src="img/1749946955961.png" alt="Logo High" class="logo-img" style="width: 100%; margin-top: -8%;"></h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#descricao" class="nav-link active" data-tab="descricao">Descrição</a></li>
+                <li><a href="#serviços" class="nav-link" data-tab="serviços">Serviços Prestados</a></li>
+             <!--<li><a href="#pdf" class="nav-link" data-tab="pdf">Catálogo PDF</a></li>-->
+                <li><a href="#contato" class="nav-link" data-tab="contato">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="tab-content">
+            <!-- Descrição Tab -->
+            <div id="descricao" class="tab-pane active">
+                <div class="hero-section">
+                    <h1>Solução HIGHWAY ENGENHARIA </h1>
+                    <p>A Highway ofereçe recuperação de pavimentos urbanos com excelência técnica: soluções integradas para infraestrutura sustentável</p>
+                </div>
+                
+                <div class="features">
+                    <div class="feature-card">
+                        <i class="fas fa-truck"></i>
+                        <h3>IDENTIFICAÇÃO E CLASSIFICAÇÃO DE DANOS</h3>
+                        <p></p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>INVENTÁRIO DE DEFEITOS</h3>
+                        <p></p>
+                    </div>
+
+                    <div class="feature-card">
+                        <i class="fas fa-leaf"></i>
+                        <h3>RESOLUÇÃO E ORÇAMENTO DE CUSTOS PARA REPARO</h3>
+                        <p></p>
+                    </div>
+                        
+                        <p class="features-4">
+                            <h2 style="color: #a67c52;">Quem somos?</h2>
+                        
+                            <br><h3 style="color: #4a453d;">A HIGHWAY ENGENHARIA apresenta estudos técnicos voltado à análise
+                            do estado de conservação de rua e avenidas, com o objetivo central
+                            verificar e avaliar criteriosamente as condições do pavimento da via,
+                            garantindo alinhamento às diretrizes técnicas estabelecidas pela
+                            contratante.Para tanto, nossa equipe realiza uma inspeção detalhada in
+                            loco, identificando e classificando os defeitos do pavimento conforme os
+                            rigorosos padrões do DNIT (Departamento Nacional de Infraestrutura
+                            de Transportes). A metodologia inclui a elaboração de um relatório
+                            fotográfico abrangente, um inventário quantitativo das anomalias e um
+                            mapa georreferenciado de defeitos, que mapeia trincas, deformações e
+                            demais patologias ao longo de todo o trecho avaliado. Além disso
+                            realizamos estudos sobre o tráfego e o dimensionamento da via, assim
+                            como uma revisão desse dimensionamento com inclusão de camada de
+                            reforço no subleito.
+<br><br>
+                            Deste modo, nossos relatórios consolidam informações críticas
+                            sobre a via, desde sua caracterização contextual até o diagnóstico
+                            preliminar de suas condições. Este levantamento inicial oferece ao
+                            cliente uma base técnica sólida para priorizar intervenções, otimizar
+                            investimentos em manutenção e prolongar a vida útil da infraestrutura,
+                            a partir de recomendações técnicas para ações corretivas, sempre
+                            pautadas na sustentabilidade e eficiência que a HIGHWAY ENGENHARIA
+                            garante aos seus clientes.</h3>
+
+                        </p>
+                    
+                </div>
+
+                <p class="features-3">
+                            <h2 style="color: #a67c52;">Transforme sua via urbana com expertise e compromisso ambiental</h2><br>
+A falta de manutenção adequada acelera a degradação de pavimentos. 
+Panela, remendos, couro de jacaré e afundamentos não são apenas incômodos: são riscos à segurança, ao conforto dos usuários e ao meio ambiente. 
+Na Highway Engenharia, oferecemos mais que reparos pontuais; entregamos recuperação integrada de pavimentos urbanos aliada a infraestrutura sustentável. 
+<div class="caixa-top">
+<h4><li>Por que escolher nossa solução?</li></h4>
+</div>
+Diagnóstico preciso: Utilizamos padrões DNIT e tecnologia avançada para identificar falhas (como espessura irregular, drenagem deficiente e danos por tráfego pesado).
+
+Sustentabilidade integrada: Projetos que combinam recapeamento durável com sistemas de drenagem pluvial, reduzindo alagamentos e erosão.
+
+Resposta a emergências: Atuamos rápido em danos críticos, como panelas que se fundem e afundamentos em pontos de ônibus.
+
+Transparência: Relatórios detalhados com mapa de defeitos, orçamento claro (em JM ou R$) e prazos realistas.
+<div class="caixa-top">
+<h4><li>Se sua cidade sofre com:</li></h4>
+</div>
+✧ Buracos que se agravam após chuvas <br>
+✧ Trincas por variação térmica ou tráfego intenso <br>
+✧ Falta de drenagem e calçadas irregulares <br>
+...sua via precisa de uma intervenção técnica urgente. 
+
+<div class="caixa-top">
+<h4><li>Solicite sua avaliação!</li></h4>
+</div>
+Não espere o próximo inverno para ver sua avenida piorar. Nossa equipe vai até seu município para:
+Avaliar o estado atual do pavimento (com relatório fotográfico e medições de espessura).
+Propor um plano de recuperação integrada (pavimentação + drenagem + acessibilidade).
+Entregar um orçamento transparente, itemizado e compatível com sua realidade.
+                </p>
+
+                           <div class="contact-form">
+                <h2 style="color: #a67c52; margin-top: 100px;">Mande sua Mensagem</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea id="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Enviar Mensagem</button>
+                </form>
+            </div>
+            </div>
+            
+            <!-- SERVIÇOS PRESTADOS-->
+            <div id="serviços" class="tab-pane">
+                <div class="hero-section">
+                    <div class="relatorio-resumo">
+    <br><br><br><h2 style="color: #a67c52;"> Av. Cláudio Alves de Souza - São Lourenço da Mata/PE</h2>
+
+    
+    <div class="destaque-box">
+        <h3>🚦 Identificação da Via</h3>
+        <ul>
+            <li><strong>Extensão:</strong> 750 metros</li>
+            <li><strong>Largura:</strong> 6,25 metros</li>
+            <li><strong>Pavimento:</strong> Concreto asfáltico</li>
+            <li><strong>Localização:</strong> Área comercial/residencial</li>
+        </ul>
+    </div>
+    
+    <div class="destaque-box alerta">
+        <h3>⚠️ Principais Problemas Identificados</h3>
+        <ul>
+            <li><strong>Defeitos Graves:</strong> Panelas, remendos e "couro de jacaré"</li>
+            <li><strong>Espessura Irregular:</strong> Varia entre 3,0 cm e 4,5 cm (<span class="destaque">abaixo do mínimo de 5cm</span>)</li>
+            <li><strong>Agravamento Rápido:</strong> Danos aumentaram significativamente em 40 dias</li>
+            <li><strong>Falta de Drenagem:</strong> Ausência de sistema adequado</li>
+        </ul>
+    </div>
+    
+    <div class="destaque-box">
+        <h3>🚌 Impacto do Tráfego</h3>
+        <ul>
+            <li>4 linhas de ônibus urbanos circulando diariamente</li>
+            <li>3 pontos de parada por sentido causando desgaste pontual</li>
+            <li>Tráfego intenso de veículos leves e pesados</li>
+        </ul>
+    </div>
+
+    <div class="destaque-box1">
+        <div class="pdf-container">
+                    <h2>Relatórios Entregues</h2>
+                    
+                    <a href="pdf/1° EE - Highway - Relatório Sintético (1).pdf" class="btn" download>
+                        <i class="fas fa-download"></i> Baixar Relatorio Parcial  
+                    <a href="pdf/Relatório Final - 2° EE Highway Eng.pdf" class="btn" download>
+                        <i class="fas fa-download"></i> Baixar Relatorio Final 
+                    </a>
+                </div>
+    </div>
+
+</div>
+                </div>
+            </div>
+
+            <!-- PDF Tab 
+            <div id="pdf" class="tab-pane">
+                <div class="pdf-container">
+                    <h2>Catálogo de Serviços</h2>
+                    <p>Confira nosso catálogo completo de serviços e soluções de transporte. Baixe o PDF para visualizar offline.</p>
+                    <a href="pdf/1° EE - Highway - Relatório Sintético.pdf" class="btn" download>
+                        <i class="fas fa-download"></i> Baixar Catálogo
+                    </a>
+                </div>
+            </div>-->
+            
+            <!-- Contato Tab -->
+            <div id="contato" class="tab-pane">
+                <div class="contact-container">
+                    <h2>Entre em Contato</h2>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> contato@highway.com.br</p>
+                        <p><i class="fas fa-phone"></i> (81) 99999-8888</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Rua Professor Hercliano Pires 500 </p>
+                    </div>
+                    <a href="https://wa.me/5581998885137" class="btn whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Fale Conosco pelo WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Highway. Todos os direitos reservados.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <div class="destaque-box2">
+                    <h3 style="color: #ddd; margin-bottom: 20px;">Nossa Equipe</h3>
+                <p> <li>Diretora de Engenharia: <b>Camila Cavalcanti</b></li>
+                    <li>Diretor Comercial: <b>Vinícius Cordeiro</b></li>
+                    <li>Diretor Técnico: <b>Felipe Oliveira</b></li>
+                    <li>Diretor de Projetos: <b>Pedro Moraes</b></li>
+                </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab Navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all links and panes
+                document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
+                document.querySelectorAll('.tab-pane').forEach(el => el.classList.remove('active'));
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                // Show the corresponding tab pane
+                const tabId = this.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            navLinks.classList.toggle('show');
+        });
+        
+        // Logo Upload Functionality
+        const logoUpload = document.getElementById('logoUpload');
+        logoUpload.addEventListener('click', function() {
+            alert('Funcionalidade de upload de imagem: Em uma implementação real, isso abriria um seletor de arquivos para carregar a imagem do logo.');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                if (navLinks.classList.contains('show')) {
+                    navLinks.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
